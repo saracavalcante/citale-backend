@@ -1,7 +1,8 @@
 const express = require('express');
+const quotesController = require('./controllers/quotesController');
 
 const router = express.Router();
 
-router.get('/', (req, res) => res.status(200).send('router is working!'));
+router.get('/quotes', quotesController.getAll);
 
 module.exports = router;
