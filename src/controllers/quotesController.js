@@ -11,7 +11,23 @@ const createQuote = async (req, res) => {
     return res.status(201).json(createQuote);
 };
 
+const deleteQuote = async (req, res) => {
+    const { id } = req.params;
+
+    await quotesModel.deleteQuote(id);
+    return res.status(204).json();
+};
+
+const updateQuote = async (req, res) => {
+    const { id } = req.params;
+
+    await quotesModel.updateQuote(id, req.body);
+    return res.status(204).json();
+};
+
 module.exports = {
     getAll,
-    createQuote
+    createQuote,
+    deleteQuote,
+    updateQuote
 };
